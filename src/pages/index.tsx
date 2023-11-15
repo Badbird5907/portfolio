@@ -12,7 +12,7 @@ export default function Home() {
         id={"features"}
       >
         <div className="container mx-auto text-center">
-          <h2 className="text-4xl text-cobalt-800 font-bold mb-4">Dummy</h2>
+          <h2 className="text-4xl font-bold mb-4">Dummy</h2>
           <p className="text-xl text-white">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
             ultrices eros sit amet urna fringilla, sit amet sagittis velit

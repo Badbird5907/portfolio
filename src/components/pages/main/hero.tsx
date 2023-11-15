@@ -20,7 +20,7 @@ const Hero = () => {
                 <h1 className={"text-6xl font-bold"}>Evan 👋</h1>
               </PopIn>
               <PopIn duration={0.8}>
-                <h1 className={"text-4xl"}>
+                <h1 className={"text-4xl whitespace-nowrap"}>
                   <AboutTypewriter />
                 </h1>
               </PopIn>
