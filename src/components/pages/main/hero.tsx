@@ -4,6 +4,7 @@ import CustomButton from "@/components/button";
 import { FaGithub, FaTwitter } from "react-icons/fa";
 import SlideUp from "@/components/framer/slide-up";
 import Typewriter from "typewriter-effect";
+import AboutTypewriter from "@/components/typewriter";
 
 const Hero = () => {
   return (
@@ -20,13 +21,7 @@ const Hero = () => {
               </PopIn>
               <PopIn duration={0.8}>
                 <h1 className={"text-4xl"}>
-                  <Typewriter
-                    onInit={(typewriter) => {
-                      typewriter
-                        .pasteString("But I go by Badbird5907 online.", null) // TODO have this as default
-                        .start();
-                    }}
-                  />
+                  <AboutTypewriter />
                 </h1>
               </PopIn>
               <div className={"flex flex-row self-center gap-4 scale-125"}>
