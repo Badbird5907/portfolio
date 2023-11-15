@@ -1,9 +1,11 @@
 import Hero from "@/components/pages/main/hero";
 import { ReadProgress } from "@/components/read-progress";
+import Navbar from "@/components/navbar";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between w-full">
+      <Navbar />
       <section>
         <Hero />
       </section>
