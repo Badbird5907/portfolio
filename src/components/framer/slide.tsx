@@ -4,6 +4,8 @@ import React from "react";
 type StaggerConfig = {
   staggerChildren: number;
   delayChildren: number;
+  childrenComponent?: React.ElementType;
+  childrenClassName?: string;
 };
 export type SlideProps = {
   children: React.ReactNode[] | React.ReactNode;
@@ -13,9 +15,16 @@ export type SlideProps = {
   delay?: number; // TODO: stagger children
   stagger?: StaggerConfig;
   translateY?: number;
+  component?: React.ElementType;
+  className?: string;
 };
 
-const Slide = ({ once = true, ...props }: SlideProps) => {
+const Slide = ({
+  once = true,
+  component = motion.div,
+  ...props
+}: SlideProps) => {
+  const Component = component;
   // the children should be hidden, and then while fading in, slide up
   if (props.stagger) {
     const container = {
@@ -30,22 +39,35 @@ const Slide = ({ once = true, ...props }: SlideProps) => {
       visible: { opacity: 1, scale: 1 },
       hidden: { opacity: 0, scale: 0 },
     };
+    const ChildComponent = motion.a; // props.stagger.childrenComponent || motion.div;
     return (
-      <motion.div
+      <Component
+        className={props.className}
         initial={"hidden"}
         whileInView={"visible"}
         viewport={{ once }}
         variants={container}
         animate={"visible"}
       >
-        {Array.isArray(props.children)
-          ? props.children.map((child, i) => (
-              <motion.div key={i} variants={variants}>
-                {child}
-              </motion.div>
-            ))
-          : props.children}
-      </motion.div>
+        {Array.isArray(props.children) ? (
+          props.children.map((child, i) => (
+            <ChildComponent
+              key={i}
+              variants={variants}
+              className={props.stagger?.childrenClassName}
+            >
+              {child}
+            </ChildComponent>
+          ))
+        ) : (
+          <ChildComponent
+            variants={variants}
+            className={props.stagger?.childrenClassName}
+          >
+            {props.children}
+          </ChildComponent>
+        )}
+      </Component>
     );
   }
   return (
