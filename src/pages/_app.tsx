@@ -5,7 +5,7 @@ import { NextUIProvider } from "@nextui-org/react";
 import { GeistSans } from "geist/font/sans";
 import { DynamicModalProvider } from "@/components/dynamic-modal";
 import Navbar from "@/components/navbar";
-import Nav from "@/components/nav";
+import { Particles } from "@/components/particles";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -13,6 +13,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <main className={`dark font-sans min-h-screen ${GeistSans.variable}`}>
         <DynamicModalProvider>
           <Navbar />
+          <Particles blur={0} />
           <Component {...pageProps} />
         </DynamicModalProvider>
       </main>

@@ -1,6 +1,4 @@
 import Hero from "@/components/pages/main/hero";
-import { ReadProgress } from "@/components/read-progress";
-import Navbar from "@/components/navbar";
 
 export default function Home() {
   return (
