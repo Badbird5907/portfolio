@@ -3,7 +3,6 @@ import PopIn from "@/components/framer/pop-in";
 import CustomButton from "@/components/button";
 import { FaGithub, FaTwitter } from "react-icons/fa";
 import SlideUp from "@/components/framer/slide-up";
-import Typewriter from "typewriter-effect";
 import AboutTypewriter from "@/components/typewriter";
 
 const Hero = () => {
@@ -20,7 +19,7 @@ const Hero = () => {
                 <h1 className={"text-6xl font-bold"}>Evan 👋</h1>
               </PopIn>
               <PopIn duration={0.8}>
-                <h1 className={"text-4xl whitespace-nowrap"}>
+                <h1 className={"text-4xl"}>
                   <AboutTypewriter />
                 </h1>
               </PopIn>
