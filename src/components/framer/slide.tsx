@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, Transition } from "framer-motion";
 import React from "react";
 
 type StaggerConfig = {
@@ -17,6 +17,7 @@ export type SlideProps = {
   translateY?: number;
   component?: React.ElementType;
   className?: string;
+  transition?: Transition;
 };
 
 const Slide = ({
@@ -39,7 +40,8 @@ const Slide = ({
       visible: { opacity: 1, scale: 1 },
       hidden: { opacity: 0, scale: 0 },
     };
-    const ChildComponent = motion.a; // props.stagger.childrenComponent || motion.div;
+    const ChildComponent: typeof motion.div | any =
+      props.stagger.childrenComponent || motion.div;
     return (
       <Component
         className={props.className}
@@ -48,6 +50,7 @@ const Slide = ({
         viewport={{ once }}
         variants={container}
         animate={"visible"}
+        transition={props.transition}
       >
         {Array.isArray(props.children) ? (
           props.children.map((child, i) => (
@@ -55,6 +58,7 @@ const Slide = ({
               key={i}
               variants={variants}
               className={props.stagger?.childrenClassName}
+              transition={props.transition}
             >
               {child}
             </ChildComponent>
@@ -63,6 +67,7 @@ const Slide = ({
           <ChildComponent
             variants={variants}
             className={props.stagger?.childrenClassName}
+            transition={props.transition}
           >
             {props.children}
           </ChildComponent>
@@ -78,6 +83,7 @@ const Slide = ({
       transition={{
         duration: props.duration,
         delay: props.delay,
+        ...props.transition,
       }}
       variants={{
         visible: { opacity: 1, translateY: 0 },

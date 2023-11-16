@@ -2,11 +2,21 @@ import Link from "next/link";
 import SlideDown from "@/components/framer/slide-down";
 import { stagger, useAnimate } from "framer-motion";
 
-const nav = [{ href: "/", label: "Home" }];
+const nav = [
+  { href: "/", label: "Home" },
+  { href: "/blog", label: "Blog" },
+];
+
 const Navbar = () => {
   return (
-    <header className="flex items-center justify-between px-6 py-4 float-left w-full">
-      <SlideDown duration={0.5} delay={1}>
+    <header className="fixed top-0 z-50 w-full shadow-md px-6 py-4">
+      <SlideDown
+        duration={0.5}
+        delay={1}
+        transition={{
+          type: "spring",
+        }}
+      >
         <nav className="space-x-4">
           {nav.map((item, i) => {
             return (
