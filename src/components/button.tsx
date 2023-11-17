@@ -5,6 +5,7 @@ import { Button as NextUIButton, ButtonProps } from "@nextui-org/react";
 import { PressEvent } from "@react-types/shared";
 import { FaCheck, FaX } from "react-icons/fa6";
 import { useDynamicModal } from "@/components/dynamic-modal";
+import {useRouter} from "next/router";
 
 const CustomButton = ({
   modalOnError = true,
@@ -18,8 +19,10 @@ const CustomButton = ({
   modalOnError?: boolean;
   showStatusColor?: boolean;
   closeModal?: () => void;
+  href?: string;
 } & React.ComponentProps<typeof NextUIButton>) => {
   const { showModal, closeModal } = useDynamicModal();
+  const router = useRouter();
   const [loading, setLoading] = React.useState(false);
   const [statusIcon, setStatusIcon] = React.useState<React.ReactNode | null>(
     null
@@ -39,6 +42,9 @@ const CustomButton = ({
       <NextUIButton
         color={btnColor === "default" ? "primary" : btnColor || "primary"}
         onPress={(e: PressEvent) => {
+          if (props.href) {
+            router.push(props.href);
+          }
           if (props.onClickLoading) {
             setLoading(true);
             const promise = props.onClickLoading(e);

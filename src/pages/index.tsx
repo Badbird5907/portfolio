@@ -1,4 +1,5 @@
 import Hero from "@/components/pages/main/hero";
+import Skills from "@/components/pages/main/skills";
 
 export default function Home() {
   return (
@@ -8,16 +9,9 @@ export default function Home() {
       </section>
       <section
         className="w-full h-screen flex items-center justify-center"
-        id={"features"}
+        id={"skills"}
       >
-        <div className="container mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-4">Dummy</h2>
-          <p className="text-xl text-white">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-            ultrices eros sit amet urna fringilla, sit amet sagittis velit
-            dapibus.
-          </p>
-        </div>
+        <Skills />
       </section>
     </main>
   );

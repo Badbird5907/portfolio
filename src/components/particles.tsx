@@ -1,8 +1,12 @@
 import { loadParticlesRepulseInteraction } from "tsparticles-interaction-particles-repulse";
-import { Engine, tsParticles } from "tsparticles-engine";
+import {
+  Engine,
+  IOptions,
+  RecursivePartial,
+  tsParticles,
+} from "tsparticles-engine";
 import { Particles as ReactParticles } from "react-particles";
 import { loadFull } from "tsparticles";
-import { CSSProperties } from "react";
 import colors from "tailwindcss/colors";
 
 export function Particles({ blur = 0 }) {
@@ -11,7 +15,7 @@ export function Particles({ blur = 0 }) {
     loadParticlesRepulseInteraction(tsParticles);
   }
 
-  const options = {
+  const options: RecursivePartial<IOptions> = {
     detectRetina: true,
     interactivity: {
       events: {
@@ -39,6 +43,9 @@ export function Particles({ blur = 0 }) {
       },
     },
     particles: {
+      zIndex: {
+        value: 23,
+      },
       color: {
         value: colors.blue[500],
       },
@@ -89,15 +96,5 @@ export function Particles({ blur = 0 }) {
     },
   };
 
-  return (
-    <ReactParticles
-      style={
-        {
-          "--tsparticles-blur": blur ? `blur(${blur}px)` : "none",
-        } as CSSProperties
-      }
-      options={options}
-      init={init}
-    />
-  );
+  return <ReactParticles options={options} init={init} />;
 }
