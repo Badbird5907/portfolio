@@ -6,7 +6,11 @@ const Skills = () => {
   return (
     <div className="container mx-auto text-center">
       <h2 className="text-4xl font-bold mb-4">Skills</h2>
-      <Skill name="React" icon={FaReact} className={"hover:text-blue-500"} />
+      <Skill
+        name="React"
+        icon={FaReact}
+        className={"hover:text-blue-500 hover:border-blue-500"}
+      />
     </div>
   );
 };

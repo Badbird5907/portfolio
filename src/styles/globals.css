@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 * {
-
+  /* TODO: figure out why text renders under particles */
+  z-index: 1;
 }
 
 
