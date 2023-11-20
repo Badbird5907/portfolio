@@ -11,7 +11,7 @@ const Hero = () => {
       <div className="flex h-screen justify-center items-center">
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 items-center">
-            <div className="flex flex-col justify-center space-y-8 text-center gap-1">
+            <div className="flex flex-col justify-center space-y-8 text-center gap-1 z-10">
               <PopIn duration={0.5}>
                 <h1 className={"text-6xl"}>Hi I{"'"}m</h1>
               </PopIn>

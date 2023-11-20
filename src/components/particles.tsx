@@ -42,9 +42,12 @@ export function Particles({ blur = 0 }) {
         },
       },
     },
+    fullScreen: {
+      zIndex: 0,
+    },
     particles: {
       zIndex: {
-        value: 23,
+        value: 0,
       },
       color: {
         value: colors.blue[500],
@@ -96,5 +99,14 @@ export function Particles({ blur = 0 }) {
     },
   };
 
-  return <ReactParticles options={options} init={init} />;
+  return (
+    <ReactParticles
+      options={options}
+      init={init}
+      className={"negativeZIndex"}
+      style={{
+        zIndex: "-1 !important",
+      }}
+    />
+  );
 }

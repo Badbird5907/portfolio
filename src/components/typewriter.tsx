@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Typewriter from "typewriter-effect";
 
-const iAm = ["software engineer", "full stack developer", "freelancer", "nerd"];
+const iAm = [
+  "developer",
+  "software engineer",
+  "full stack developer",
+  "freelancer",
+  "nerd",
+];
 const AboutTypewriter = () => {
   // TODO: new lines move buttons down on mobile
   return (
