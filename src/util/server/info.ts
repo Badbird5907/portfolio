@@ -30,7 +30,8 @@ export async function getVersionString(): Promise<{
   } else if (enviornment === "preview" || enviornment === "test") {
     infoString = "preview";
   } else {
-    infoString = "unknown";
+    if (enviornment) infoString = enviornment;
+    else infoString = "unknown";
   }
   if (vercel) {
     infoString += ":vercel";
