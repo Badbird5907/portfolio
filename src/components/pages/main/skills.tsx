@@ -28,7 +28,7 @@ const skills: SkillProps[] = [
       "I have been building applications and Minecraft plugins with java for over 4 years.",
   },
   {
-    name: "TypeScript",
+    name: "JavaScript",
     className: "hover:text-yellow-500 hover:border-yellow-500",
     icon: <SiJavascript className={"text-4xl"} />,
   },
