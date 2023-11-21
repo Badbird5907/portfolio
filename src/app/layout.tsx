@@ -1,19 +1,14 @@
-"use client";
+import "@/styles/globals.css";
 
 import { Providers } from "@/app/providers";
 import Navbar from "@/components/navbar";
 import React from "react";
 import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 
-import "@/styles/globals.css";
 import dynamic from "next/dynamic";
-
-const Particles = dynamic(
-  () => import("@/components/particles").then((mod) => mod.Particles),
-  {
-    ssr: false,
-  }
-);
+import Footer from "@/components/footer";
+import { Particles } from "@/components/particles";
 
 export default function RootLayout({
   children,
@@ -21,15 +16,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={"dark"}>
+    <html lang="en" className={`dark ${GeistSans.className}`}>
       <body>
         <Providers>
-          <main
-            className={`dark font-sans antialiased min-h-screen ${GeistSans.variable}`}
-          >
+          <main className={`dark font-sans antialiased min-h-screen`}>
             <Particles />
             <Navbar />
             {children}
+            <Footer />
           </main>
         </Providers>
       </body>

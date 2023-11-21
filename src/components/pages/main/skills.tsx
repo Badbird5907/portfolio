@@ -99,7 +99,7 @@ const skills: SkillProps[] = [
 const Skills = () => {
   return (
     <div className="container mx-auto text-center">
-      <h2 className="text-4xl font-bold mb-4">Skills</h2>
+      <h2 className="text-4xl font-bold mb-4">Skills & Experience</h2>
       <div className={"w-full flex flex-wrap gap-8 justify-center"}>
         {skills.map((skill, i) => {
           return (

@@ -1,3 +1,5 @@
+"use client";
+
 import { loadParticlesRepulseInteraction } from "tsparticles-interaction-particles-repulse";
 import {
   Engine,
