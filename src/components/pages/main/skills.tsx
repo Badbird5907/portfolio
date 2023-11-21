@@ -1,20 +1,47 @@
 import React from "react";
-import { FaJava, FaReact } from "react-icons/fa";
-import Skill, {SkillProps} from "@/components/pages/main/skill";
+import {FaGit, FaGitAlt, FaGithub, FaJava, FaJs, FaReact} from "react-icons/fa";
+import Skill, { SkillProps } from "@/components/pages/main/skill";
 
 import NextJS from "@public/assets/next-js.svg";
 import Image from "next/image";
-import { SiMongodb } from "react-icons/si";
+import {SiJavascript, SiMongodb, SiTailwindcss, SiTypescript} from "react-icons/si";
 import { TbBrandNextjs } from "react-icons/tb";
-
+import {CgVercel} from "react-icons/cg";
 
 const skills: SkillProps[] = [
   {
+    name: "Java",
+    className: "hover:text-orange-500 hover:border-orange-500",
+    icon: <FaJava className={"text-4xl"} />,
+    description:
+      "I have been building applications and Minecraft plugins with java for over 4 years.",
+  },
+  {
+    name: "TypeScript",
+    className: "hover:text-yellow-500 hover:border-yellow-500",
+    icon: <SiJavascript className={"text-4xl"} />,
+  },
+  {
+    name: "TypeScript",
+    className: "hover:text-blue-500 hover:border-blue-500",
+    icon: <SiTypescript className={"text-4xl"} />,
+  },
+  {
     name: "React",
-    icon: <FaReact className={"text-4xl"}/>,
+    icon: <FaReact className={"text-4xl"} />,
     className: "hover:text-blue-500 hover:border-blue-500",
     description:
       "I have been building websites with React and Next.js for over a year now.",
+  },
+  {
+    name: "React Native",
+    icon: <FaReact className={"text-4xl"} />,
+    className: "hover:text-blue-500 hover:border-blue-500",
+  },
+  {
+    name: "TailwindCSS",
+    icon: <SiTailwindcss className={"text-4xl"} />,
+    className: "hover:text-blue-400 hover:border-blue-400",
   },
   {
     name: "NextJS",
@@ -37,13 +64,6 @@ const skills: SkillProps[] = [
     icon: <SiMongodb className={"text-4xl"} />,
   },
   {
-    name: "Java",
-    className: "hover:text-orange-500 hover:border-orange-500",
-    icon: <FaJava className={"text-4xl"} />,
-    description:
-      "I have been building applications and Minecraft plugins with java for over 4 years.",
-  },
-  {
     name: "Spring Boot",
     className: "hover:text-green-500 hover:border-green-500",
     icon: (hover) => (
@@ -55,6 +75,19 @@ const skills: SkillProps[] = [
         className={`${hover ? "" : "grayscale"}`}
       />
     ),
+  },
+  {
+    name: "Git",
+    className: "hover:text-red-500 hover:border-red-500",
+    icon: <FaGitAlt className={"text-4xl"} />,
+  },
+  {
+    name: "Github",
+    icon: <FaGithub className={"text-4xl"} />,
+  },
+  {
+    name: "Vercel",
+    icon: <CgVercel className={"text-4xl"} />,
   },
 ];
 const Skills = () => {
