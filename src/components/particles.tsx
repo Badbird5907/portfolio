@@ -11,7 +11,7 @@ import { Particles as ReactParticles } from "react-particles";
 import { loadFull } from "tsparticles";
 import colors from "tailwindcss/colors";
 
-export function Particles({ blur = 0 }) {
+export default function Particles() {
   async function init(engine: Engine) {
     await loadFull(engine);
     loadParticlesRepulseInteraction(tsParticles);

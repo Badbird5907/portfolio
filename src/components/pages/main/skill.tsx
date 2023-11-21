@@ -36,6 +36,9 @@ const Skill = (props: SkillProps) => {
       <div>
         <PopoverWrapper
           trigger={<Component />}
+          popoverProps={{
+            backdrop: "transparent",
+          }}
           content={
             <div className={"px-1 py-2"}>
               <span>{props.description}</span>

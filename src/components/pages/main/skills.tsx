@@ -19,8 +19,6 @@ const skills: SkillProps[] = [
     name: "Java",
     className: "hover:text-orange-500 hover:border-orange-500",
     icon: <FaJava className={"text-4xl"} />,
-    description:
-      "I have been building applications and Minecraft plugins with java for over 4 years.",
   },
   {
     name: "JavaScript",
@@ -36,8 +34,6 @@ const skills: SkillProps[] = [
     name: "React",
     icon: <FaReact className={"text-4xl"} />,
     className: "hover:text-blue-500 hover:border-blue-500",
-    description:
-      "I have been building websites with React and Next.js for over a year now.",
   },
   {
     name: "React Native",
@@ -61,8 +57,6 @@ const skills: SkillProps[] = [
         className={"invert"}
       />
     ),
-    description:
-      "I have been building websites with React and Next.js for over a year now.",
   },
   {
     name: "MongoDB",

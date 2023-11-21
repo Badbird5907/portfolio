@@ -8,8 +8,10 @@ import { GeistMono } from "geist/font/mono";
 
 import dynamic from "next/dynamic";
 import Footer from "@/components/footer";
-import { Particles } from "@/components/particles";
 
+const Particles = dynamic(() => import("@/components/particles"), {
+  ssr: false,
+});
 export default function RootLayout({
   children,
 }: {
