@@ -10,6 +10,7 @@ const Skills = () => {
         name="React"
         icon={FaReact}
         className={"hover:text-blue-500 hover:border-blue-500"}
+        description={"Stuff"}
       />
     </div>
   );
