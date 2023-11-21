@@ -15,7 +15,7 @@ export default function Home() {
         <Hero />
       </section>
       <section
-        className="w-full h-screen flex items-center justify-center"
+        className="w-full min-h-screen flex items-center justify-center"
         id={"skills"}
       >
         <Skills />
