@@ -5,7 +5,7 @@ import { Button as NextUIButton, ButtonProps } from "@nextui-org/react";
 import { PressEvent } from "@react-types/shared";
 import { FaCheck, FaX } from "react-icons/fa6";
 import { useDynamicModal } from "@/components/dynamic-modal";
-import {useRouter} from "next/router";
+import { useRouter } from "next/router";
 
 const CustomButton = ({
   modalOnError = true,

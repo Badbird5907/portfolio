@@ -2,7 +2,7 @@ import React from "react";
 
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import Link from "next/link";
-import {Button} from "@nextui-org/react";
+import { Button } from "@nextui-org/react";
 import CustomButton from "@/components/button";
 
 const Page1 = (

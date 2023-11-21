@@ -1,12 +1,23 @@
 import React from "react";
-import {FaGit, FaGitAlt, FaGithub, FaJava, FaJs, FaReact} from "react-icons/fa";
+import {
+  FaGit,
+  FaGitAlt,
+  FaGithub,
+  FaJava,
+  FaJs,
+  FaReact,
+} from "react-icons/fa";
 import Skill, { SkillProps } from "@/components/pages/main/skill";
 
 import NextJS from "@public/assets/next-js.svg";
 import Image from "next/image";
-import {SiJavascript, SiMongodb, SiTailwindcss, SiTypescript} from "react-icons/si";
-import { TbBrandNextjs } from "react-icons/tb";
-import {CgVercel} from "react-icons/cg";
+import {
+  SiJavascript,
+  SiMongodb,
+  SiTailwindcss,
+  SiTypescript,
+} from "react-icons/si";
+import { CgVercel } from "react-icons/cg";
 
 const skills: SkillProps[] = [
   {
