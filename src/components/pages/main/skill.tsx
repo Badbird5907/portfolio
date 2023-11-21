@@ -1,19 +1,23 @@
 import PopoverWrapper from "@/components/hover-popover";
+import { useState } from "react";
 
-type SkillProps = {
+export type SkillProps = {
   name: string;
-  icon: React.ElementType;
+  icon: React.ReactNode | ((hover: boolean) => React.ReactNode);
   className?: string;
   description?: string;
 };
 const Skill = (props: SkillProps) => {
+  const [hover, setHover] = useState(false);
   const Component = () => {
     return (
       <div
-        className={`border-2 w-fit p-3 rounded-xl border-gray-500 flex flex-row hover:scale-110 transition-all duration-200 ${props.className}`}
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+        className={`border-2 w-fit p-4 rounded-xl border-gray-500 flex flex-row hover:scale-110 transition-all duration-200 ${props.className}`}
       >
-        <div className={"text-6xl pr-4"}>
-          <props.icon />
+        <div className={`text-6xl pr-4`}>
+          {typeof props.icon === "function" ? props.icon(hover) : props.icon}
         </div>
         <div className={"flex flex-row"}>
           <div className={"text-2xl font-bold self-center"}>{props.name}</div>
@@ -23,10 +27,16 @@ const Skill = (props: SkillProps) => {
   };
   if (props.description) {
     return (
-      <PopoverWrapper
-        trigger={<Component />}
-        content={<span>{props.description}</span>}
-      />
+      <div>
+        <PopoverWrapper
+          trigger={<Component />}
+          content={
+            <div className={"px-1 py-2"}>
+              <span>{props.description}</span>
+            </div>
+          }
+        />
+      </div>
     );
   }
   return <Component />;

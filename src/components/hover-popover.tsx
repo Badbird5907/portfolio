@@ -9,25 +9,23 @@ const PopoverWrapper = ({ trigger, content }: PopoverWrapperProps) => {
   const [open, setOpen] = React.useState(false);
 
   return (
-    <>
-      <Popover isOpen={open}>
-        <PopoverTrigger>
-          <div
-            onMouseEnter={() => setOpen(true)}
-            onMouseLeave={() => setOpen(false)}
-            onClick={(e) => {
-              // check if its a tap or a click
-              if (e.detail === 0) {
-                setOpen(!open);
-              }
-            }}
-          >
-            {trigger}
-          </div>
-        </PopoverTrigger>
-        <PopoverContent>{content}</PopoverContent>
-      </Popover>
-    </>
+    <Popover isOpen={open} placement={"bottom"}>
+      <PopoverTrigger>
+        <div
+          onMouseEnter={() => setOpen(true)}
+          onMouseLeave={() => setOpen(false)}
+          onClick={(e) => {
+            // check if its a tap or a click
+            if (e.detail === 0) {
+              setOpen(!open);
+            }
+          }}
+        >
+          {trigger}
+        </div>
+      </PopoverTrigger>
+      <PopoverContent className={"serif"}>{content}</PopoverContent>
+    </Popover>
   );
 };
 

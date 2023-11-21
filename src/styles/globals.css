@@ -5,6 +5,10 @@
 * {
   /* TODO: figure out why text renders under particles */
   z-index: 1;
+  font-family: var(--font-geist-sans);
+}
+.serif {
+  font-family: sans-serif;
 }
 
 
