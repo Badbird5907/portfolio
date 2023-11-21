@@ -14,16 +14,12 @@ const Particles = dynamic(
     ssr: false,
   }
 );
-const RouterProgress = dynamic(() => import("@/components/router-progress"), {
-  ssr: false,
-});
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <main
       className={`dark font-sans antialiased min-h-screen ${GeistSans.variable} ${GeistMono.variable}`}
     >
       <NextUIProvider>
-        <RouterProgress />
         <DynamicModalProvider>
           <Particles />
           <Navbar />

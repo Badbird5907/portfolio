@@ -1,6 +1,5 @@
 import Link from "next/link";
 import SlideDown from "@/components/framer/slide-down";
-import { stagger, useAnimate } from "framer-motion";
 
 const nav = [
   { href: "/", label: "Home" },

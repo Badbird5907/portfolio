@@ -1,3 +1,5 @@
+"use client";
+
 import PopoverWrapper from "@/components/hover-popover";
 import { useState } from "react";
 import { useIsMobile } from "@nextui-org/use-is-mobile";

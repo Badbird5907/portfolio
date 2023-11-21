@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from "react";
+"use client";
+
+import React from "react";
 import Typewriter from "typewriter-effect";
 
 const iAm = [

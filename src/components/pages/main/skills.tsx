@@ -1,12 +1,7 @@
+"use client";
+
 import React from "react";
-import {
-  FaGit,
-  FaGitAlt,
-  FaGithub,
-  FaJava,
-  FaJs,
-  FaReact,
-} from "react-icons/fa";
+import { FaGitAlt, FaGithub, FaJava, FaReact } from "react-icons/fa";
 import Skill, { SkillProps } from "@/components/pages/main/skill";
 
 import NextJS from "@public/assets/next-js.svg";
