@@ -22,7 +22,9 @@ const Skill = (props: SkillProps) => {
           {typeof props.icon === "function" ? props.icon(hover) : props.icon}
         </div>
         <div className={"flex flex-row hidden md:block"}>
-          <div className={"text-2xl font-bold self-center cursor-default"}>{props.name}</div>
+          <div className={"text-2xl font-bold self-center cursor-default"}>
+            {props.name}
+          </div>
         </div>
       </div>
     );
