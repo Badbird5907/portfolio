@@ -37,6 +37,15 @@ const Page = () => {
         }}
         allowDir={false}
       />
+      <a
+        className={"text-gray-400 text-sm hover:underline"}
+        href={
+          "https://github.com/Badbird5907/site-new/blob/master/src/components/github-file-selector.tsx"
+        }
+        target={"_blank"}
+      >
+        View Source
+      </a>
     </div>
   );
 };
