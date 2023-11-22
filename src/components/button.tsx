@@ -33,6 +33,7 @@ const CustomButton = ({
   }, [props.color]);
   const propsCopy = { ...props };
   delete propsCopy.onClickLoading; // fix invalid event handler error
+  delete propsCopy.onClick;
   delete propsCopy.color;
   delete propsCopy.closeModal;
   return (
@@ -40,6 +41,7 @@ const CustomButton = ({
       <NextUIButton
         color={btnColor === "default" ? "primary" : btnColor || "primary"}
         onPress={(e: PressEvent) => {
+          if (props.disabled) return;
           if (props.href) {
             // router.push(props.href);
             window.history.pushState({}, "", props.href);

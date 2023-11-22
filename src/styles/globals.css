@@ -11,6 +11,14 @@
   font-family: sans-serif;
 }
 
+.truncate-ltr {
+  overflow:hidden;
+  white-space:nowrap;
+  -ms-text-overflow:ellipsis;
+  text-overflow:ellipsis;
+  direction:rtl;
+}
+
 
 :root {
   --foreground-rgb: 0, 0, 0;
