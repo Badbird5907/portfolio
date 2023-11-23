@@ -36,6 +36,9 @@ const CustomButton = ({
   delete propsCopy.onClick;
   delete propsCopy.color;
   delete propsCopy.closeModal;
+  if (!propsCopy.isDisabled && propsCopy.disabled) {
+    propsCopy.isDisabled = propsCopy.disabled;
+  }
   return (
     <>
       <NextUIButton
