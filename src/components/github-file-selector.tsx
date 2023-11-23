@@ -1,6 +1,11 @@
 "use client";
 import { Card, CardBody } from "@nextui-org/card";
-import { Autocomplete, AutocompleteItem, Input } from "@nextui-org/react";
+import {
+  Autocomplete,
+  AutocompleteItem,
+  Input,
+  MenuTriggerAction,
+} from "@nextui-org/react";
 import { useEffect, useState } from "react";
 import { Octokit } from "octokit";
 import { GithubFile } from "@/types/gh";
@@ -34,7 +39,6 @@ const GithubFileSelector = (props: GithubFileSelectorProps) => {
   useEffect(() => {
     if (username && repo) {
       setLoading(true);
-      console.log(`fetching files for ${username}/${repo} path ${file?.path}`);
       octokit.rest.repos
         .getContent({
           owner: username,
@@ -99,12 +103,28 @@ const GithubFileSelector = (props: GithubFileSelectorProps) => {
                   (f) => f.name === key
                 );
                 setFile(file || null);
-                console.log(item);
+              }}
+              clearButtonProps={{
+                onClick: (e) => {
+                  setFile(null);
+                },
+              }}
+              onOpenChange={(
+                open: boolean,
+                menuTrigger?: MenuTriggerAction
+              ) => {
+                console.log(open, menuTrigger);
               }}
             >
               {(item: GithubFile) => {
                 return (
-                  <AutocompleteItem key={item.name} className={"truncate"}>
+                  <AutocompleteItem
+                    key={item.name}
+                    className={"truncate"}
+                    // intentionally triggering a bug to keep the menu open:
+                    // <Item> with non-plain text contents is unsupported by type to select for accessibility. Please add a `textValue` prop.
+                    textValue={item.type === "dir" ? undefined : item.name}
+                  >
                     {item.name}
                     {item.type === "dir" ? "/" : ""}
                   </AutocompleteItem>
@@ -113,7 +133,11 @@ const GithubFileSelector = (props: GithubFileSelectorProps) => {
             </Autocomplete>
           </div>
           <CustomButton
-            disabled={!file || (!props.allowDir && file.type === "dir")}
+            disabled={
+              !file ||
+              (!props.allowDir && file.type === "dir") ||
+              file.name === ".."
+            }
             onClick={() => props.onSubmit(file as GithubFile)}
           >
             Select
