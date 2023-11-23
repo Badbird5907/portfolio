@@ -8,10 +8,15 @@ import { GeistMono } from "geist/font/mono";
 
 import dynamic from "next/dynamic";
 import Footer from "@/components/footer";
+import { Metadata } from "next";
 
 const Particles = dynamic(() => import("@/components/particles"), {
   ssr: false,
 });
+export const metadata: Metadata = {
+  title: "Badbird5907",
+  description: "My portfolio",
+};
 export default function RootLayout({
   children,
 }: {
