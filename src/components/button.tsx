@@ -42,6 +42,7 @@ const CustomButton = ({
   return (
     <>
       <NextUIButton
+        disabled
         color={btnColor === "default" ? "primary" : btnColor || "primary"}
         onPress={(e: PressEvent) => {
           if (props.disabled) return;
