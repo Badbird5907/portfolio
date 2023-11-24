@@ -1,7 +1,6 @@
 import "@/styles/globals.css";
 
 import { Providers } from "@/app/providers";
-import Navbar from "@/components/navbar";
 import React from "react";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
@@ -9,6 +8,7 @@ import { GeistMono } from "geist/font/mono";
 import dynamic from "next/dynamic";
 import Footer from "@/components/footer";
 import { Metadata } from "next";
+import Navbar from "@/components/nav/navbar";
 
 const Particles = dynamic(() => import("@/components/particles"), {
   ssr: false,

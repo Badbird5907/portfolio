@@ -72,6 +72,9 @@ export async function getVersionString(): Promise<{
         if (cleanUrl.endsWith("/")) {
           cleanUrl = cleanUrl.slice(0, -1);
         }
+        if (cleanUrl.endsWith(".git")) {
+          cleanUrl = cleanUrl.slice(0, -4);
+        }
         if (match) {
           // make a new url but with /commit/shortCommit
           url = `${cleanUrl}/commit/${shortCommit}`;
