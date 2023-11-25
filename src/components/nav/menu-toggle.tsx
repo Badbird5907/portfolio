@@ -12,8 +12,12 @@ const Path = (props: any) => (
 );
 
 export const MenuToggle = ({ toggle }: { toggle: any }) => (
-  <button onClick={toggle} className={"float-left absolute top-10 left-10"}>
-    <svg width="23" height="23" viewBox="0 0 23 23">
+  <button
+    onClick={toggle}
+    className={"float-left absolute top-5 left-5 bg-black p-4 rounded-full"}
+  >
+    {/* TODO: fix extra space under last line and remove mt-[0.5px] */}
+    <svg width="23" height="23" viewBox="0 0 23 23" className={"mt-[0.5px]"}>
       <Path
         variants={{
           closed: { d: "M 2 2.5 L 20 2.5" },
