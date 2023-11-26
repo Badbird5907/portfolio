@@ -7,17 +7,17 @@ import { MenuToggle } from "@/components/nav/menu-toggle";
 import { Navigation } from "@/components/nav/mobile/navigation";
 
 const sidebar = {
-  open: (height = 1000) => ({
-    clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
+  open: {
+    clipPath: "circle(150% at 50px 40px)",
     transition: {
       type: "spring",
       stiffness: 20,
       restDelta: 2,
     },
     height: "100%",
-  }),
+  },
   closed: {
-    clipPath: "circle(30px at 40px 40px)",
+    clipPath: "circle(15px at 40px 40px)",
     transition: {
       delay: 0.5,
       type: "spring",
