@@ -17,7 +17,7 @@ export const MenuItem = ({ i, show, href, title }: MenuItemProps) => {
         opacity: 1,
       }}
       transition={{
-        delay: show ? i * 0.23 : 0,
+        delay: show ? (i + 1) * 0.2 : 0,
       }}
       className={
         "w-full justify-center py-8 list-none mb-[20px] flex items-center cursor-pointer"
