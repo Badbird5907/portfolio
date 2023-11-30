@@ -140,7 +140,7 @@ const GithubFileSelector = (props: GithubFileSelectorProps) => {
             }
             onClick={() => props.onSubmit(file as GithubFile)}
           >
-            Select
+            Select File
           </CustomButton>
         </div>
       </CardBody>

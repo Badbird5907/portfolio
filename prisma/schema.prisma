@@ -30,9 +30,9 @@ model Author {
 }
 
 model Tag {
-  id      String  @id @default(auto()) @map("_id") @db.ObjectId
-  name    String  @unique
-  iconUrl String?
+  id   String @id @default(auto()) @map("_id") @db.ObjectId
+  name String @unique
+  icon String
 }
 
 type Source {

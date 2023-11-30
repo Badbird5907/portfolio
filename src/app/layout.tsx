@@ -24,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`dark ${GeistSans.className}`}>
-      <body>
+      <body data-color-mode="dark">
         <Providers>
           <main className={`dark font-sans antialiased min-h-screen`}>
             <Particles />
