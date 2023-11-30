@@ -29,7 +29,7 @@ export default function RootLayout({
           <main className={`dark font-sans antialiased min-h-screen`}>
             <Particles />
             <Navbar />
-            {children}
+            <div className={"min-h-screen"}>{children}</div>
             <Footer />
           </main>
         </Providers>

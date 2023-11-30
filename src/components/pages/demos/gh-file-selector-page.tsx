@@ -2,11 +2,12 @@
 import GithubFileSelector from "@/components/github-file-selector";
 import { GithubFile } from "@/types/gh";
 import { useState } from "react";
+import PageCenter from "@/components/center";
 
 const GhFileSelectorPage = () => {
   const [file, setFile] = useState<GithubFile | null>(null);
   return (
-    <div className="flex flex-col items-center justify-center px-6 mx-auto h-screen">
+    <PageCenter>
       <div className={"py-4 flex flex-col"}>
         {file ? (
           <>
@@ -45,7 +46,7 @@ const GhFileSelectorPage = () => {
       >
         View Source
       </a>
-    </div>
+    </PageCenter>
   );
 };
 
