@@ -78,10 +78,10 @@ const EditBlog = (props: EditBlogProps) => {
                   className={"w-full flex flex-col"}
                 >
                   {ghFile && (
-                    <span>
+                    <span className={"text-center"}>
                       Selected File:{" "}
                       <a
-                        href={ghFile.git_url}
+                        href={ghFile.html_url}
                         target={"_blank"}
                         className={"text-blue-500 hover:underline"}
                       >

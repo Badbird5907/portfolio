@@ -26,7 +26,11 @@ const GithubFileSelector = (props: GithubFileSelectorProps) => {
   const getUpDir = (): GithubFile => {
     return {
       name: "..",
-      path: file ? file.path.split("/").slice(0, -1).join("/") : "",
+      path: file
+        ? file.path.includes("/")
+          ? file.path.split("/").slice(0, -1).join("/")
+          : file.path
+        : "",
       sha: "",
       size: 0,
       type: "dir",

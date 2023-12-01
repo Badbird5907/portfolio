@@ -1,7 +1,7 @@
 "use client";
 
 import PageCenter from "@/components/center";
-import { Card, CardBody } from "@nextui-org/card";
+import { Card, CardBody, CardHeader } from "@nextui-org/card";
 import { Input } from "@nextui-org/react";
 import CustomButton from "@/components/button";
 import axios from "axios";
@@ -9,7 +9,10 @@ import axios from "axios";
 const Page = () => {
   return (
     <PageCenter>
-      <Card>
+      <Card className={"w-1/4"}>
+        <CardHeader>
+          <h1 className={"text-4xl font-bold w-full text-center"}>Login</h1>
+        </CardHeader>
         <CardBody className={"flex flex-col gap-4"}>
           <Input id={"password"} type={"password"} label={"Password"} />
           <CustomButton
