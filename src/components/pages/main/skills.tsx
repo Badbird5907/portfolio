@@ -41,7 +41,7 @@ const skills: SkillProps[] = [
     className: "hover:text-blue-500 hover:border-blue-500",
   },
   {
-    name: "TailwindCSS",
+    name: "Tailwind",
     icon: <SiTailwindcss className={"text-4xl"} />,
     className: "hover:text-blue-400 hover:border-blue-400",
   },
