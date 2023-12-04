@@ -8,9 +8,11 @@ import { GeistMono } from "geist/font/mono";
 import dynamic from "next/dynamic";
 import Footer from "@/components/footer";
 import { Metadata } from "next";
-import Navbar from "@/components/nav/navbar";
 
 const Particles = dynamic(() => import("@/components/particles"), {
+  ssr: false,
+});
+const Navbar = dynamic(() => import("@/components/nav/navbar"), {
   ssr: false,
 });
 export const metadata: Metadata = {

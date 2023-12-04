@@ -10,8 +10,13 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@mdx-js/loader": "^3.0.0",
+    "@mdx-js/react": "^3.0.0",
+    "@next/bundle-analyzer": "^14.0.3",
+    "@next/mdx": "^14.0.3",
     "@nextui-org/react": "^2.2.9",
     "@prisma/client": "^5.6.0",
+    "@types/mdx": "^2.0.10",
     "@uiw/react-md-editor": "^4.0.1",
     "axios": "^1.6.2",
     "chalk": "^5.3.0",
@@ -19,6 +24,7 @@
     "geist": "^1.1.0",
     "jose": "^5.1.2",
     "next": "^14.0.3",
+    "next-mdx-remote": "^4.4.1",
     "next-remove-imports": "^1.0.12",
     "octokit": "^3.1.2",
     "react": "^18",
@@ -27,6 +33,7 @@
     "react-dom": "^18",
     "react-icons": "^4.12.0",
     "react-particles": "^2.12.2",
+    "remark-gfm": "^4.0.0",
     "tsparticles": "^2.12.0",
     "tsparticles-interaction-particles-repulse": "^2.12.0",
     "typewriter-effect": "^2.21.0"

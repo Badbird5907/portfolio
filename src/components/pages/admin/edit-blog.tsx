@@ -9,6 +9,7 @@ import GithubFileSelector from "@/components/github-file-selector";
 import CustomButton from "@/components/button";
 import { useDynamicModal } from "@/components/dynamic-modal";
 import { GithubFile } from "@/types/gh";
+import MarkdownEditor from "@/components/markdown/editor";
 
 type EditBlogProps = {
   post?: Post;
@@ -34,7 +35,7 @@ const EditBlog = (props: EditBlogProps) => {
     <Card className={"w-2/3"}>
       <CardHeader>
         <h1 className={"text-4xl font-bold w-full text-center"}>
-          {props.post ? "Edit" : "New"} Blog Post
+          {props.post ? "Edit" : "New"} Post
         </h1>
       </CardHeader>
       <CardBody>
@@ -81,7 +82,7 @@ const EditBlog = (props: EditBlogProps) => {
                     <span className={"text-center"}>
                       Selected File:{" "}
                       <a
-                        href={ghFile.html_url}
+                        href={ghFile.download_url}
                         target={"_blank"}
                         className={"text-blue-500 hover:underline"}
                       >
@@ -121,14 +122,19 @@ const EditBlog = (props: EditBlogProps) => {
                   </CustomButton>
                 </Tab>
                 <Tab key={"url"} title={"URL"}>
-                  <Input
-                    label={"URL"}
-                    id={"url"}
-                    value={""}
-                    onChange={(e: ChangeEvent<HTMLInputElement>) => {}}
-                  />
+                  <Input label={"URL"} id={"url"} type={"url"} />
                 </Tab>
-                <Tab key={"raw"} title={"Input"}></Tab>
+                <Tab
+                  key={"raw"}
+                  title={"Input"}
+                  className={"transition-opacity duration-200"}
+                >
+                  <span className={"text-center text-gray-500"}>
+                    Note that the preview shown here will have some differences
+                    to what{"'"}s shown on the site
+                  </span>
+                  <MarkdownEditor />
+                </Tab>
               </Tabs>
             </div>
           </div>
