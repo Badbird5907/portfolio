@@ -28,7 +28,7 @@ const Hero = () => {
                   <CustomButton
                     href={"https://github.com/Badbird5907"}
                     variant={"faded"}
-                    className={"text-white"}
+                    className={"text-white hover:cursor-pointer"}
                   >
                     <FaGithub /> GitHub
                   </CustomButton>
@@ -37,7 +37,7 @@ const Hero = () => {
                   <CustomButton
                     href={"https://github.com/Badbird5907"}
                     color={"primary"}
-                    className={"text-white"}
+                    className={"text-white hover:cursor-pointer"}
                   >
                     <FaTwitter /> Twitter
                   </CustomButton>

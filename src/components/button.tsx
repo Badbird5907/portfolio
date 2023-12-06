@@ -36,6 +36,7 @@ const CustomButton = ({
   delete propsCopy.onClick;
   delete propsCopy.color;
   delete propsCopy.closeModal;
+  delete propsCopy.href;
   if (!propsCopy.isDisabled && propsCopy.disabled) {
     propsCopy.isDisabled = propsCopy.disabled;
   }
@@ -48,7 +49,9 @@ const CustomButton = ({
           if (props.disabled) return;
           if (props.href) {
             // router.push(props.href);
-            window.history.pushState({}, "", props.href);
+            if (props.href.startsWith("http")) {
+              window.open(props.href, "_blank"); // TODO find a better sol
+            } else window.history.pushState({}, "", props.href);
           }
           if (props.onClickLoading) {
             setLoading(true);
