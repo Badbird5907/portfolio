@@ -35,7 +35,7 @@ const Hero = () => {
                 </SlideUp>
                 <SlideUp duration={0.5} delay={0.7}>
                   <CustomButton
-                    href={"https://github.com/Badbird5907"}
+                    href={"https://twitter.com/Badbird_5907"}
                     color={"primary"}
                     className={"text-white hover:cursor-pointer"}
                   >
