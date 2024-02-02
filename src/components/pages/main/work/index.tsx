@@ -59,6 +59,7 @@ const work: Work[] = [
       "Linux",
       "DevOps",
       "SysAdmin",
+      "Docker",
     ],
   },
 ];
