@@ -23,7 +23,8 @@ const work: Work[] = [
     start: "January 2022",
     end: "Present",
     points: [
-      "Worked with various clients to create products including Minecraft plugins, discord bots, and websites.",
+      "Worked with various clients to create products including Minecraft plugins, discord bots, and websites, bringing in over $900,000 in revenue per year.",
+      "Worked with various clients to provide sysadmin, devops, and server management services.",
       "Used many technologies including Java, Typescript, NextJS, MongoDB, and Redis.",
     ],
     tags: ["Java", "Typescript", "React", "NextJS", "MongoDB", "Redis"],
