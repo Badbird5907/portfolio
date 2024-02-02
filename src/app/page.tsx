@@ -2,6 +2,7 @@
 
 import Hero from "@/components/pages/main/hero";
 import Skills from "@/components/pages/main/skills";
+import Work from "@/components/pages/main/work";
 
 export default function Page() {
   return (
@@ -14,6 +15,12 @@ export default function Page() {
         id={"skills"}
       >
         <Skills />
+      </section>
+      <section
+        className="w-full min-h-screen flex items-center justify-center"
+        id={"work"}
+      >
+        <Work />
       </section>
     </main>
   );

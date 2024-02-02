@@ -13,6 +13,7 @@ import {
   SiTypescript,
 } from "react-icons/si";
 import { CgVercel } from "react-icons/cg";
+import SlideUp from "@/components/framer/slide-up";
 
 const skills: SkillProps[] = [
   {
@@ -92,18 +93,20 @@ const skills: SkillProps[] = [
 ];
 const Skills = () => {
   return (
-    <div className="container mx-auto text-center">
-      <h2 className="text-4xl font-bold mb-4">Skills & Experience</h2>
-      <div className={"w-full flex flex-wrap gap-8 justify-center"}>
-        {skills.map((skill, i) => {
-          return (
-            <div key={i}>
-              <Skill {...skill} />
-            </div>
-          );
-        })}
+    <SlideUp duration={0.5} delay={0.2}>
+      <div className="container mx-auto text-center">
+        <h2 className="text-4xl font-bold mb-4">Skills & Experience</h2>
+        <div className={"w-full flex flex-wrap gap-8 justify-center"}>
+          {skills.map((skill, i) => {
+            return (
+              <div key={i}>
+                <Skill {...skill} />
+              </div>
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </SlideUp>
   );
 };
 

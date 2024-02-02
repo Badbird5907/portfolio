@@ -19,7 +19,7 @@ export type SlideProps = {
   component?: React.ElementType;
   className?: string;
   transition?: Transition;
-};
+} & React.ComponentProps<typeof motion.div>;
 
 const Slide = ({
   once = true,
