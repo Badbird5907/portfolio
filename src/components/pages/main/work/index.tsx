@@ -9,7 +9,7 @@ import { Chip } from "@nextui-org/chip";
 const work: Work[] = [
   {
     name: "Connect",
-    title: "SDE",
+    title: "Founding Software Engineer",
     start: "January 2024",
     end: "Present",
     points: [
