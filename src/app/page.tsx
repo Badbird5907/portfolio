@@ -6,7 +6,7 @@ import Work from "@/components/pages/main/work";
 
 export default function Page() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between w-full">
+    <main className="flex min-h-screen h-screen flex-col items-center justify-between w-full">
       <section>
         <Hero />
       </section>
