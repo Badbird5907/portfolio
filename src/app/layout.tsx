@@ -7,6 +7,7 @@ import { GeistSans } from "geist/font/sans";
 import dynamic from "next/dynamic";
 import Footer from "@/components/footer";
 import { Metadata } from "next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: "Badbird5907",
@@ -26,6 +27,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`dark ${GeistSans.className}`}>
+      <SpeedInsights />
       <body data-color-mode="dark">
         <Providers>
           <main className={`dark font-sans antialiased min-h-screen`}>
