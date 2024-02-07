@@ -3,11 +3,15 @@ import "@/styles/globals.css";
 import { Providers } from "@/app/providers";
 import React from "react";
 import { GeistSans } from "geist/font/sans";
-import { GeistMono } from "geist/font/mono";
 
 import dynamic from "next/dynamic";
 import Footer from "@/components/footer";
 import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Badbird5907",
+  description: "My portfolio",
+};
 
 const Particles = dynamic(() => import("@/components/particles"), {
   ssr: false,
@@ -15,10 +19,6 @@ const Particles = dynamic(() => import("@/components/particles"), {
 const Navbar = dynamic(() => import("@/components/nav/navbar"), {
   ssr: false,
 });
-export const metadata: Metadata = {
-  title: "Badbird5907",
-  description: "My portfolio",
-};
 export default function RootLayout({
   children,
 }: {
@@ -31,7 +31,7 @@ export default function RootLayout({
           <main className={`dark font-sans antialiased min-h-screen`}>
             <Particles />
             <Navbar />
-            <div className={"min-h-screen"}>{children}</div>
+            {children}
             <Footer />
           </main>
         </Providers>
