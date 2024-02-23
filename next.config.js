@@ -8,7 +8,6 @@ const withMDX = require("@next/mdx")();
 const nextConfig = {
   reactStrictMode: true,
   transpilePackages: ["geist"],
-  swcMinify: true,
 };
 
 module.exports = withBundleAnalyzer(removeImports(withMDX(nextConfig)));

@@ -11,8 +11,6 @@ type PopInProps = {
   className?: string;
 };
 const PopIn = ({ once = true, ...props }: PopInProps) => {
-  if (process.env.NEXT_PUBLIC_DISABLE_ANIMATIONS === "true")
-    return <div className={props.className}>{props.children}</div>;
   return (
     <motion.div
       className={props.className}

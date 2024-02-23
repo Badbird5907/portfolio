@@ -26,9 +26,6 @@ const Slide = ({
   component = motion.div,
   ...props
 }: SlideProps) => {
-  if (process.env.NEXT_PUBLIC_DISABLE_ANIMATIONS === "true")
-    return <div className={props.className}>{props.children}</div>;
-
   const Component = component;
   // the children should be hidden, and then while fading in, slide up
   if (props.stagger) {
