@@ -17,12 +17,11 @@ export default function Particles() {
   }
 
    */
-  // const [init, setInit] = useState(false);
-  const init = true;
+  const [init, setInit] = useState(false);
   useEffect(() => {
     initParticlesEngine(async (engine) => {
       await loadSlim(engine);
-    }); // .then(() => setInit(true));
+    }).then(() => setInit(true));
   }, []);
 
   const options = useMemo(() => {
