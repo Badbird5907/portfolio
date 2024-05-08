@@ -1,10 +1,17 @@
 import React from "react";
 import SlideUp from "@/components/framer/slide-up";
-import Work from "@/types/work";
 import { Tab, Tabs } from "@nextui-org/react";
 import { Card, CardHeader } from "@nextui-org/card";
-import { AnimatePresence } from "framer-motion";
 import { Chip } from "@nextui-org/chip";
+
+type Work = {
+  name: string;
+  title?: string;
+  start: string;
+  end: string;
+  points: string[];
+  tags: string[];
+};
 
 const work: Work[] = [
   {
