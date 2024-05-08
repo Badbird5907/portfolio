@@ -30,7 +30,9 @@ export default function RootLayout({
       <SpeedInsights />
       <body data-color-mode="dark">
         <Providers>
-          <main className={`dark font-sans antialiased min-h-screen`}>
+          <main
+            className={`dark font-sans antialiased min-h-screen text-foreground bg-background`}
+          >
             <Particles />
             <Navbar />
             <div className={"min-h-screen"}>{children}</div>
