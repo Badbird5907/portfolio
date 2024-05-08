@@ -20,10 +20,10 @@ const work: Work[] = [
     start: "January 2024",
     end: "Present",
     points: [
-      "Developing a edTech platform using React, NextJS, Supabase, TailwindCSS, and Prisma to help students navigate their post-grad journey.",
-      "To be adopted by 1 high-school, expecting more by the end of Q1'24, with 3,300 active users.",
+      "Developing a edTech platform using React, NextJS, Supabase, TailwindCSS, and Drizzle to help students navigate their post-grad journey.",
+      "To be adopted by 1 high-school, and expecting more, with 3,300 active users.",
     ],
-    tags: ["React", "NextJS", "Supabase", "TailwindCSS", "Prisma"],
+    tags: ["React", "NextJS", "Supabase", "TailwindCSS", "Drizzle"],
   },
   {
     name: "Freelancing",
