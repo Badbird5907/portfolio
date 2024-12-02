@@ -13,7 +13,7 @@ type RendererProps = {
     source: string;
   };
 };
-const MarkdownRenderer = async (props: RendererProps) => {
+const MarkdownRenderer = (props: RendererProps) => {
   const [mdxSource, setMdxSource] = useState<
     MDXRemoteSerializeResult | undefined
   >(props.mdxSource);

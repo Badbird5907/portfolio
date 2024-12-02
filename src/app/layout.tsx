@@ -2,7 +2,7 @@ import "@/styles/globals.css";
 
 import { Providers } from "@/app/providers";
 import React from "react";
-import Script from 'next/script'
+import Script from "next/script";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 
@@ -29,7 +29,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`dark ${GeistSans.className}`}>
       <SpeedInsights />
-      <Script src="https://assets.onedollarstats.com/tracker.js" data-site-id="badbird.dev"  />
+      <Script
+        src="https://assets.onedollarstats.com/tracker.js"
+        data-site-id="badbird.dev"
+      />
       <body data-color-mode="dark">
         <Providers>
           <main
