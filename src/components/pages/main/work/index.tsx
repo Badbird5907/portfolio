@@ -21,7 +21,7 @@ const work: Work[] = [
     end: "Present",
     points: [
       "Developing a edTech platform using React, NextJS, Supabase, TailwindCSS, and Drizzle to help students navigate their post-grad journey.",
-      "Adopted by 3 organizers, expecting more, with 3,300 active users.",
+      "Adopted by 3 organizations, expecting more, with 3,300 active users.",
     ],
     tags: ["React", "NextJS", "Supabase", "TailwindCSS", "Drizzle"],
   },
