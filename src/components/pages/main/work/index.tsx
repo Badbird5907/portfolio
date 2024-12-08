@@ -21,7 +21,7 @@ const work: Work[] = [
     end: "Present",
     points: [
       "Developing a edTech platform using React, NextJS, Supabase, TailwindCSS, and Drizzle to help students navigate their post-grad journey.",
-      "To be adopted by 1 high-school, and expecting more, with 3,300 active users.",
+      "Adopted by 3 organizers, expecting more, with 3,300 active users.",
     ],
     tags: ["React", "NextJS", "Supabase", "TailwindCSS", "Drizzle"],
   },
@@ -42,7 +42,7 @@ const work: Work[] = [
     start: "January 2022",
     end: "December 2023",
     points: [
-      "Used Java, the Paper API, and MySQL to develop gameplay features for game server.",
+      "Used Java, the Paper API, and MySQL to develop gameplay features for the game server.",
       "Developed a discord bot to manage player tickets and moderation using Java and JDA.",
     ],
     tags: ["Java", "MySQL"],
