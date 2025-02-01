@@ -1,9 +1,9 @@
 import React from "react";
 import PopIn from "@/components/framer/pop-in";
-import CustomButton from "@/components/button";
 import { FaGithub, FaTwitter } from "react-icons/fa";
 import SlideUp from "@/components/framer/slide-up";
 import AboutTypewriter from "@/components/typewriter";
+import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   return (
@@ -25,24 +25,26 @@ const Hero = () => {
               </PopIn>
               <div className={"flex flex-row self-center gap-4 scale-125"}>
                 <SlideUp duration={0.5} delay={0.5}>
-                  <CustomButton
+                  <Button
                     href={"https://github.com/Badbird5907"}
-                    variant={"faded"}
+                    variant={"outline"}
                     className={"text-white hover:cursor-pointer"}
                   >
                     <FaGithub /> GitHub
-                  </CustomButton>
+                  </Button>
                 </SlideUp>
+
                 <SlideUp duration={0.5} delay={0.7}>
-                  <CustomButton
+                  <Button
                     href={"https://twitter.com/Badbird_5907"}
                     color={"primary"}
-                    className={"text-white hover:cursor-pointer"}
+                    className={"text-white hover:cursor-pointer bg-blue-500 hover:bg-blue-600"}
                   >
                     <FaTwitter /> Twitter
-                  </CustomButton>
+                  </Button>
                 </SlideUp>
               </div>
+
             </div>
           </div>
         </div>

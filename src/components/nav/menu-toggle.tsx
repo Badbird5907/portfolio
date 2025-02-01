@@ -1,7 +1,7 @@
 import * as React from "react";
 import { motion } from "framer-motion";
 
-const Path = (props: any) => (
+const Path = (props: React.ComponentProps<typeof motion.path>) => (
   <motion.path
     fill="transparent"
     strokeWidth="3"
@@ -11,7 +11,7 @@ const Path = (props: any) => (
   />
 );
 
-export const MenuToggle = ({ toggle }: { toggle: any }) => (
+export const MenuToggle = ({ toggle }: { toggle: () => void }) => (
   <button
     onClick={toggle}
     className={"float-left absolute top-5 left-5 bg-black p-4 rounded-full"}

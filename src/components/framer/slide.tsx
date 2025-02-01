@@ -1,5 +1,5 @@
 "use client";
-import { motion, Transition } from "framer-motion";
+import { motion, type Transition } from "framer-motion";
 import React from "react";
 
 type StaggerConfig = {
@@ -41,8 +41,8 @@ const Slide = ({
       visible: { opacity: 1, scale: 1 },
       hidden: { opacity: 0, scale: 0 },
     };
-    const ChildComponent: typeof motion.div | any =
-      props.stagger.childrenComponent || motion.div;
+    const ChildComponent: typeof motion.div | React.ElementType =
+      props.stagger.childrenComponent ?? motion.div;
     return (
       <Component
         className={props.className}

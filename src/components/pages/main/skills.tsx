@@ -2,7 +2,7 @@
 
 import React from "react";
 import { FaGitAlt, FaGithub, FaJava, FaReact } from "react-icons/fa";
-import Skill, { SkillProps } from "@/components/pages/main/skill";
+import Skill, { type SkillProps } from "@/components/pages/main/skill";
 
 import NextJS from "@public/assets/next-js.svg";
 import Image from "next/image";
@@ -14,6 +14,7 @@ import {
 } from "react-icons/si";
 import { CgVercel } from "react-icons/cg";
 import SlideUp from "@/components/framer/slide-up";
+import { motion } from "framer-motion";
 
 const skills: SkillProps[] = [
   {
@@ -93,20 +94,29 @@ const skills: SkillProps[] = [
 ];
 const Skills = () => {
   return (
-    <SlideUp duration={0.5} delay={0.2}>
-      <div className="container mx-auto text-center">
-        <h2 className="text-4xl font-bold mb-4">Skills & Experience</h2>
-        <div className={"w-full flex flex-wrap gap-8 justify-center"}>
-          {skills.map((skill, i) => {
-            return (
-              <div key={i}>
-                <Skill {...skill} />
-              </div>
-            );
-          })}
-        </div>
+    <div className="container mx-auto text-center">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="flex justify-center"
+      >
+        <h1 className="text-4xl font-mono mb-8 inline-block relative">
+          <span className="font-bold">Skills & Experience</span>
+          <span className="absolute bottom-0 left-0 w-full h-[2px] bg-blue-500" />
+        </h1>
+      </motion.div>
+
+      <div className={"w-full flex flex-wrap gap-8 justify-center"}>
+        {skills.map((skill, i) => {
+          return (
+            <div key={i}>
+              <Skill {...skill} />
+            </div>
+          );
+        })}
       </div>
-    </SlideUp>
+    </div>
   );
 };
 

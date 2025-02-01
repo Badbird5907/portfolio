@@ -3,12 +3,10 @@ import "@/styles/globals.css";
 import { Providers } from "@/app/providers";
 import React from "react";
 import Script from "next/script";
-import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 
-import dynamic from "next/dynamic";
 import Footer from "@/components/footer";
-import { Metadata } from "next";
+import { type Metadata } from "next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { DynamicParticlesNavbar } from "./dynamic";
 export const metadata: Metadata = {
@@ -21,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`dark ${GeistSans.className}`}>
+    <html lang="en" className={`dark ${GeistMono.className}`}>
       <SpeedInsights />
       <Script
         src="https://assets.onedollarstats.com/tracker.js"

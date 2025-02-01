@@ -1,8 +1,11 @@
 "use client";
 
-import PopoverWrapper from "@/components/hover-popover";
-import { useState } from "react";
-import { useIsMobile } from "@nextui-org/use-is-mobile";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { useMemo, useState } from "react";
 
 export type SkillProps = {
   name: string;
@@ -11,8 +14,12 @@ export type SkillProps = {
   description?: string;
 };
 const Skill = (props: SkillProps) => {
-  const isMobile = useIsMobile();
+  const isMobile = useMemo(() => {
+    if (typeof window === "undefined") return false;
+    return window.innerWidth < 768;
+  }, []);
   const [hover, setHover] = useState(false);
+
   const Component = () => {
     return (
       <div
@@ -23,7 +30,7 @@ const Skill = (props: SkillProps) => {
         <div className={`text-6xl pr-0 md:pr-4`}>
           {typeof props.icon === "function" ? props.icon(hover) : props.icon}
         </div>
-        <div className={"flex flex-row hidden md:block"}>
+        <div className={"hidden md:block"}>
           <div className={"text-2xl font-bold self-center cursor-default"}>
             {props.name}
           </div>
@@ -34,17 +41,16 @@ const Skill = (props: SkillProps) => {
   if (props.description && !isMobile) {
     return (
       <div>
-        <PopoverWrapper
-          trigger={<Component />}
-          popoverProps={{
-            backdrop: "transparent",
-          }}
-          content={
+        <Popover>
+          <PopoverTrigger>
+            <Component />
+          </PopoverTrigger>
+          <PopoverContent>
             <div className={"px-1 py-2"}>
               <span>{props.description}</span>
             </div>
-          }
-        />
+          </PopoverContent>
+        </Popover>
       </div>
     );
   }

@@ -1,4 +1,3 @@
-import { error } from "@/util/log";
 
 let cachedVersionString: string | null = null;
 let cachedUrl: string | null = null;
@@ -13,7 +12,7 @@ export async function getVersionString(): Promise<{
       url: cachedUrl,
     };
   }
-  const enviornment = process.env.VERCEL_ENV || process.env.NODE_ENV;
+  const enviornment = process.env.VERCEL_ENV ?? process.env.NODE_ENV;
   const vercel = process.env.VERCEL === "1";
   const {
     VERCEL_GIT_PROVIDER,
@@ -63,11 +62,9 @@ export async function getVersionString(): Promise<{
       const remoteUrl = execSync("git config --get remote.origin.url");
       if (remoteUrl) {
         // check if github
-        const match = remoteUrl
+        const match = /github\.com\/([^\/]+)\/([^\/]+)(\.git)?.*/.exec(remoteUrl
           .toString()
-          .trim()
-          // match github.com/username/repo (.git is optional)
-          .match(/github\.com\/([^\/]+)\/([^\/]+)(\.git)?.*/);
+          .trim());
         let cleanUrl = remoteUrl.toString().trim();
         if (cleanUrl.endsWith("/")) {
           cleanUrl = cleanUrl.slice(0, -1);
@@ -82,7 +79,7 @@ export async function getVersionString(): Promise<{
       }
       shortCommit = shortCommit.slice(0, 7);
     } catch (e) {
-      error(e);
+      console.error(e);
     }
     infoString += `:git:${branchName}/${shortCommit}:local`;
   }

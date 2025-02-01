@@ -1,8 +1,6 @@
-import React from "react";
-import SlideUp from "@/components/framer/slide-up";
-import { Tab, Tabs } from "@nextui-org/react";
-import { Card, CardHeader } from "@nextui-org/card";
-import { Chip } from "@nextui-org/chip";
+import React, { useMemo, useState } from "react";
+import { AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 type Work = {
   name: string;
@@ -70,71 +68,111 @@ const work: Work[] = [
     ],
   },
 ];
-const Work = () => {
+const Work = () => { // hi ethan :]
+  const [selectedCompany, setSelectedCompany] = useState(work[0].name)
+  const selectedWork = useMemo(() => {
+    return work.find((item) => item.name === selectedCompany)
+  }, [selectedCompany])
+
+
   return (
-    <SlideUp duration={0.5} delay={0.2}>
-      <div className="container mx-auto text-center">
-        <h2 className="text-4xl font-bold mb-4">Work</h2>
-        <div className={"w-full flex flex-col justify-center"}>
-          <Tabs aria-label={"Work"} className={"self-center"}>
-            {work.map((w, i) => (
-              <Tab key={w.name} title={w.name}>
-                <SlideUp duration={0.5} delay={0.2} className={"w-full"}>
-                  <div className={"w-full flex flex-row place-content-center"}>
-                    <Card className={"w-2/3 flex text-align-center"}>
-                      <CardHeader className={"flex flex-col gap-2"}>
-                        <div className={"w-full"}>
-                          <div
-                            className={"flex flex-row w-full justify-center"}
-                          >
-                            {w.title && (
-                              <h1 className="text-4xl font-bold">
-                                {w.title} @
-                              </h1>
-                            )}
-                            <h1
-                              className={`text-4xl font-bold ml-2 ${
-                                w.title ? "text-blue-500" : ""
-                              }`}
-                            >
-                              {w.name}
-                            </h1>
-                          </div>
-                          <div className={"flex flex-row justify-center"}>
-                            <p className={"text-gray-500 text-2xl"}>
-                              {w.start} - {w.end}
-                            </p>
-                          </div>
-                        </div>
-                        <ul
-                          className={
-                            "flex flex-col text-left list-disc px-4 flex-wrap"
-                          }
-                        >
-                          {w.points.map((point, i) => (
-                            <li key={i} className={"text-gray-500 text-xl"}>
-                              {point}
-                            </li>
-                          ))}
-                        </ul>
-                        {w.tags && (
-                          <div className={"flex flex-row justify-center gap-2"}>
-                            {w.tags.map((tag, i) => (
-                              <Chip key={i}>{tag}</Chip>
-                            ))}
-                          </div>
-                        )}
-                      </CardHeader>
-                    </Card>
-                  </div>
-                </SlideUp>
-              </Tab>
+    <div className="min-h-screen text-white p-8">
+      <div className="max-w-7xl mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ duration: 0.5 }}
+          className="flex justify-center"
+        >
+          <h1 className="text-4xl font-mono mb-8 inline-block relative">
+            <span className="font-bold">Work</span>
+            <span className="absolute bottom-0 left-0 w-full h-[2px] bg-blue-500" />
+          </h1>
+        </motion.div>
+
+
+        <div className="grid md:grid-cols-[200px_1fr] gap-8">
+          <div className="space-y-4">
+            {work.map((item, index) => (
+              <motion.div
+                key={item.name}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                onClick={() => setSelectedCompany(item.name)}
+                className={`text-lg font-mono transition-colors cursor-pointer relative pl-4 ${
+                  selectedCompany === item.name ? "text-blue-500" : "text-gray-300 hover:text-blue-500"
+                }`}
+              >
+                {selectedCompany === item.name && (
+                  <motion.div
+                    layoutId="activeTab"
+                    className="absolute left-0 top-0 w-1 h-full bg-blue-500"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                )}
+                {item.name}
+              </motion.div>
             ))}
-          </Tabs>
+          </div>
+
+          <AnimatePresence mode="wait">
+            {selectedWork && (
+              <motion.div
+                key={selectedWork.name}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.3 }}
+                className="w-full max-w-2xl"
+              >
+                <div className="mb-2">
+                  <h3 className="text-xl font-mono font-bold">
+                    {selectedWork.title && <span className="text-blue-500">{selectedWork.title} @ </span>}
+                    {selectedWork.name}
+                  </h3>
+                  <p className="text-gray-400 font-mono">
+                    {selectedWork.start} - {selectedWork.end}
+                  </p>
+                </div>
+
+                <ul className="space-y-2 mb-4">
+                  {selectedWork.points.map((point, pointIndex) => (
+                    <motion.li
+                      key={pointIndex}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: pointIndex * 0.1 }}
+                      className="flex items-start"
+                    >
+                      <span className="text-blue-500 mr-2">▸</span>
+                      <span className="text-gray-300">{point}</span>
+                    </motion.li>
+                  ))}
+                </ul>
+
+                <div className="flex flex-wrap gap-2">
+                  {selectedWork.tags.map((tag, tagIndex) => (
+                    <motion.span
+                      key={tag}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.3, delay: tagIndex * 0.05 }}
+                      className="px-3 py-1 border-2 hover:border-blue-500 transition-all text-gray-300 rounded-full text-sm font-mono"
+                    >
+                      {tag}
+                    </motion.span>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
-    </SlideUp>
-  );
+    </div>
+  )
 };
 
 export default Work;

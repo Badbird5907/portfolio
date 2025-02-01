@@ -2,10 +2,8 @@
 
 import { loadParticlesRepulseInteraction } from "@tsparticles/interaction-particles-repulse";
 import {
-  Engine,
-  IOptions,
-  RecursivePartial,
-  tsParticles,
+  type IOptions,
+  type RecursivePartial,
 } from "@tsparticles/engine";
 import colors from "tailwindcss/colors";
 import {
@@ -19,7 +17,7 @@ export default function Particles() {
   const [init, setInit] = useState(false);
 
   useEffect(() => {
-    initParticlesEngine(async (engine) => {
+    void initParticlesEngine(async (engine) => {
       await loadSlim(engine);
       await loadParticlesRepulseInteraction(engine);
       setInit(true);

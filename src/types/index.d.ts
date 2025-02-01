@@ -1,10 +1,17 @@
-import { PrismaClient } from "@prisma/client";
-
 declare global {
   interface Window {
     captchaToken: string;
   }
 
-  var prisma: PrismaClient;
 }
+
+// HACK!
+declare module "framer-motion" {
+  interface MotionProps {
+    className?: string;
+    onClick?: () => void;
+  }
+}
+
+
 export {};

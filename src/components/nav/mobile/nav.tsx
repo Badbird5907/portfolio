@@ -2,9 +2,9 @@
 
 import React, { useEffect, useRef } from "react";
 import { AnimatePresence, motion, useCycle } from "framer-motion";
-import { useDimensions } from "@/components/dimensions";
 import { MenuToggle } from "@/components/nav/menu-toggle";
 import { Navigation } from "@/components/nav/mobile/navigation";
+import { useDimensions } from "@/components/dimensions";
 
 const sidebar = {
   open: {
@@ -32,8 +32,9 @@ const MobileNav = ({
   openChange?: (isOpen: boolean) => void;
 }) => {
   const [isOpen, toggleOpen] = useCycle(false, true);
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLElement | null>(null);
   const { height } = useDimensions(containerRef);
+
 
   useEffect(() => {
     if (openChange) openChange(isOpen);

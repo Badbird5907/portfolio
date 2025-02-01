@@ -21,9 +21,6 @@ const AboutTypewriter = () => {
         onInit={(typewriter) => {
           let tw = typewriter
             .changeDelay(50)
-            .typeString("But I go by Badbird5907 online.") // TODO have this as default
-            .pauseFor(1500)
-            .deleteAll()
             .typeString("I am a ")
             .pauseFor(500);
           // loop through iAm array, delete last string length, then type new string
