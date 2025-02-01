@@ -10,13 +10,7 @@ import dynamic from "next/dynamic";
 import Footer from "@/components/footer";
 import { Metadata } from "next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-
-const Particles = dynamic(() => import("@/components/particles"), {
-  ssr: false,
-});
-const Navbar = dynamic(() => import("@/components/nav/navbar"), {
-  ssr: false,
-});
+import { DynamicParticlesNavbar } from "./dynamic";
 export const metadata: Metadata = {
   title: "Badbird5907",
   description: "My portfolio",
@@ -38,8 +32,7 @@ export default function RootLayout({
           <main
             className={`dark font-sans antialiased min-h-screen text-foreground bg-background`}
           >
-            <Particles />
-            <Navbar />
+            <DynamicParticlesNavbar />
             <div className={"min-h-screen"}>{children}</div>
             <Footer />
           </main>

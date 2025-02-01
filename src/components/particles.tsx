@@ -1,21 +1,30 @@
 "use client";
 
-import { loadParticlesRepulseInteraction } from "tsparticles-interaction-particles-repulse";
+import { loadParticlesRepulseInteraction } from "@tsparticles/interaction-particles-repulse";
 import {
   Engine,
   IOptions,
   RecursivePartial,
   tsParticles,
-} from "tsparticles-engine";
-import { Particles as ReactParticles } from "react-particles";
-import { loadFull } from "tsparticles";
+} from "@tsparticles/engine";
 import colors from "tailwindcss/colors";
+import {
+  initParticlesEngine,
+  Particles as ReactParticles,
+} from "@tsparticles/react";
+import { loadSlim } from "@tsparticles/slim";
+import { useEffect, useState } from "react";
 
 export default function Particles() {
-  async function init(engine: Engine) {
-    await loadFull(engine);
-    loadParticlesRepulseInteraction(tsParticles);
-  }
+  const [init, setInit] = useState(false);
+
+  useEffect(() => {
+    initParticlesEngine(async (engine) => {
+      await loadSlim(engine);
+      await loadParticlesRepulseInteraction(engine);
+      setInit(true);
+    });
+  }, []);
 
   const options: RecursivePartial<IOptions> = {
     detectRetina: true,
@@ -33,7 +42,10 @@ export default function Particles() {
             smooth: 80,
           },
         },
-        resize: true,
+        resize: {
+          enable: true,
+          delay: 0.5,
+        },
       },
       modes: {
         repulse: {
@@ -72,7 +84,8 @@ export default function Particles() {
         value: 60,
         density: {
           enable: true,
-          area: 1000,
+          height: 1000,
+          width: 1000,
         },
       },
       opacity: {
@@ -101,14 +114,15 @@ export default function Particles() {
     },
   };
 
-  return (
-    <ReactParticles
-      options={options}
-      init={init}
-      className={"negativeZIndex"}
-      style={{
-        zIndex: "-1 !important",
-      }}
-    />
-  );
+  if (init) {
+    return (
+      <ReactParticles
+        options={options}
+        className={"negativeZIndex"}
+        style={{
+          zIndex: "-1 !important",
+        }}
+      />
+    );
+  }
 }

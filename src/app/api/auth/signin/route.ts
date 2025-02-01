@@ -15,7 +15,7 @@ export const POST = async (req: Request) => {
       JWT_SECRET as string
     );
 
-    cookies().set("token", `${newToken}`, {
+    (await cookies()).set("token", `${newToken}`, {
       httpOnly: true,
     });
     return NextResponse.json({ success: true, token: newToken });
