@@ -6,3 +6,5 @@ This is my portfolio site.
 - NextJS
 - React
 - TailwindCSS
+- [motion.dev](https://motion.dev/)
+- [tsparticles](https://particles.js.org/)
