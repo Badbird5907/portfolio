@@ -4,6 +4,7 @@ import { FaGithub, FaTwitter } from "react-icons/fa";
 import SlideUp from "@/components/framer/slide-up";
 import AboutTypewriter from "@/components/typewriter";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -25,23 +26,25 @@ const Hero = () => {
               </PopIn>
               <div className={"flex flex-row self-center gap-4 scale-125"}>
                 <SlideUp duration={0.5} delay={0.5}>
-                  <Button
-                    href={"https://github.com/Badbird5907"}
-                    variant={"outline"}
-                    className={"text-white hover:cursor-pointer"}
-                  >
-                    <FaGithub /> GitHub
-                  </Button>
+                  <Link href={"https://github.com/Badbird5907"}>
+                    <Button
+                      variant={"outline"}
+                      className={"text-white hover:cursor-pointer"}
+                    >
+                      <FaGithub /> GitHub
+                    </Button>
+                  </Link>
                 </SlideUp>
 
                 <SlideUp duration={0.5} delay={0.7}>
-                  <Button
-                    href={"https://twitter.com/Badbird_5907"}
-                    color={"primary"}
-                    className={"text-white hover:cursor-pointer bg-blue-500 hover:bg-blue-600"}
-                  >
-                    <FaTwitter /> Twitter
-                  </Button>
+                  <Link href={"https://twitter.com/Badbird_5907"}>
+                    <Button
+                      color={"primary"}
+                      className={"text-white hover:cursor-pointer bg-blue-500 hover:bg-blue-600"}
+                    >
+                      <FaTwitter /> Twitter
+                    </Button>
+                  </Link>
                 </SlideUp>
               </div>
 

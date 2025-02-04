@@ -39,7 +39,6 @@ export interface ButtonProps
   asChild?: boolean;
   onClickLoading?: () => Promise<unknown>;
   showStatusColor?: boolean;
-  href?: string;
   toggle?: [boolean, React.Dispatch<React.SetStateAction<boolean>>];
 }
 
@@ -52,7 +51,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       asChild = false,
       onClickLoading,
       showStatusColor = true,
-      href,
       toggle,
       ...props
     },
